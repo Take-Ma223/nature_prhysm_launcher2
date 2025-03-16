@@ -77,6 +77,10 @@ class SettingsNotifier extends _$SettingsNotifier{
     });
   }
 
+  void setUseDefaultFont(bool isEnable) {
+    update((data) => data.copyWith(useDefaultFont: isEnable));
+  }
+
   void setBaseFont(String font) {
     update((data) => data.copyWith(baseFont: font));
   }

@@ -25,6 +25,7 @@ mixin _$Settings {
   int get asioDriver => throw _privateConstructorUsedError;
   int get buffer => throw _privateConstructorUsedError;
   List<bool> get noteSymbol => throw _privateConstructorUsedError;
+  bool get useDefaultFont => throw _privateConstructorUsedError;
   String get baseFont => throw _privateConstructorUsedError;
   bool get vsyncOffsetCompensation => throw _privateConstructorUsedError;
   bool get showStrShadow => throw _privateConstructorUsedError;
@@ -60,6 +61,7 @@ abstract class $SettingsCopyWith<$Res> {
     int asioDriver,
     int buffer,
     List<bool> noteSymbol,
+    bool useDefaultFont,
     String baseFont,
     bool vsyncOffsetCompensation,
     bool showStrShadow,
@@ -99,6 +101,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
     Object? asioDriver = null,
     Object? buffer = null,
     Object? noteSymbol = null,
+    Object? useDefaultFont = null,
     Object? baseFont = null,
     Object? vsyncOffsetCompensation = null,
     Object? showStrShadow = null,
@@ -155,6 +158,11 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
                     ? _value.noteSymbol
                     : noteSymbol // ignore: cast_nullable_to_non_nullable
                         as List<bool>,
+            useDefaultFont:
+                null == useDefaultFont
+                    ? _value.useDefaultFont
+                    : useDefaultFont // ignore: cast_nullable_to_non_nullable
+                        as bool,
             baseFont:
                 null == baseFont
                     ? _value.baseFont
@@ -244,6 +252,7 @@ abstract class _$$SettingsImplCopyWith<$Res>
     int asioDriver,
     int buffer,
     List<bool> noteSymbol,
+    bool useDefaultFont,
     String baseFont,
     bool vsyncOffsetCompensation,
     bool showStrShadow,
@@ -282,6 +291,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
     Object? asioDriver = null,
     Object? buffer = null,
     Object? noteSymbol = null,
+    Object? useDefaultFont = null,
     Object? baseFont = null,
     Object? vsyncOffsetCompensation = null,
     Object? showStrShadow = null,
@@ -338,6 +348,11 @@ class __$$SettingsImplCopyWithImpl<$Res>
                 ? _value._noteSymbol
                 : noteSymbol // ignore: cast_nullable_to_non_nullable
                     as List<bool>,
+        useDefaultFont:
+            null == useDefaultFont
+                ? _value.useDefaultFont
+                : useDefaultFont // ignore: cast_nullable_to_non_nullable
+                    as bool,
         baseFont:
             null == baseFont
                 ? _value.baseFont
@@ -420,6 +435,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     required this.asioDriver,
     required this.buffer,
     required final List<bool> noteSymbol,
+    required this.useDefaultFont,
     required this.baseFont,
     required this.vsyncOffsetCompensation,
     required this.showStrShadow,
@@ -458,6 +474,8 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   }
 
   @override
+  final bool useDefaultFont;
+  @override
   final String baseFont;
   @override
   final bool vsyncOffsetCompensation;
@@ -486,7 +504,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Settings(vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
+    return 'Settings(vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, useDefaultFont: $useDefaultFont, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
   }
 
   @override
@@ -502,6 +520,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
       ..add(DiagnosticsProperty('asioDriver', asioDriver))
       ..add(DiagnosticsProperty('buffer', buffer))
       ..add(DiagnosticsProperty('noteSymbol', noteSymbol))
+      ..add(DiagnosticsProperty('useDefaultFont', useDefaultFont))
       ..add(DiagnosticsProperty('baseFont', baseFont))
       ..add(
         DiagnosticsProperty('vsyncOffsetCompensation', vsyncOffsetCompensation),
@@ -545,6 +564,8 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
               other._noteSymbol,
               _noteSymbol,
             ) &&
+            (identical(other.useDefaultFont, useDefaultFont) ||
+                other.useDefaultFont == useDefaultFont) &&
             (identical(other.baseFont, baseFont) ||
                 other.baseFont == baseFont) &&
             (identical(
@@ -590,6 +611,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     asioDriver,
     buffer,
     const DeepCollectionEquality().hash(_noteSymbol),
+    useDefaultFont,
     baseFont,
     vsyncOffsetCompensation,
     showStrShadow,
@@ -624,6 +646,7 @@ abstract class _Settings implements Settings {
     required final int asioDriver,
     required final int buffer,
     required final List<bool> noteSymbol,
+    required final bool useDefaultFont,
     required final String baseFont,
     required final bool vsyncOffsetCompensation,
     required final bool showStrShadow,
@@ -655,6 +678,8 @@ abstract class _Settings implements Settings {
   int get buffer;
   @override
   List<bool> get noteSymbol;
+  @override
+  bool get useDefaultFont;
   @override
   String get baseFont;
   @override

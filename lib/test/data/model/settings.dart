@@ -17,6 +17,7 @@ class Settings with _$Settings {
 
     required final List<bool> noteSymbol,
 
+    required final bool useDefaultFont,
     required final String baseFont,
 
     required final bool vsyncOffsetCompensation,
@@ -44,7 +45,8 @@ class Settings with _$Settings {
       asioDriver: -1,
       buffer: 256,
       noteSymbol: [true, true, true, true, true, true, true, true, true],
-      baseFont: "メイリオ",
+      useDefaultFont: true,
+      baseFont: "Noto Sans CJK JP Black",
       vsyncOffsetCompensation: false,
       showStrShadow: true,
       useHighPerformanceTimer: true,

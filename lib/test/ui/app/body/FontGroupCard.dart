@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/fontProvider.dart';
 import '../../../data/settingsProvider.dart';
 import '../../component/NPDropDownButton.dart';
+import '../../component/NPSwitch.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
@@ -20,7 +21,6 @@ class FontGroupCard extends ConsumerWidget {
     final settings = ref.watch(settingsNotifierProvider);
 
     final fontListAsync = ref.watch(fontNameListProvider);
-
 
     return settings.when(
       data: (settings){
@@ -56,14 +56,30 @@ class FontGroupCard extends ConsumerWidget {
           error: (e, stack) => Center(child: Text("エラー: $e")),
         );
 
+        Widget fontSelectWidget;
+        if(settings.useDefaultFont){
+          fontSelectWidget = SizedBox(width: 0,height: 0);
+        }else{
+          fontSelectWidget = Column(
+            children: [
+              Container(height: space),
+              DescAndSettingItem(
+                desc: NPText(text: "ゲームで使用するフォントを変更"),
+                settingItem: fontSelectorWidget,
+              ),
+            ],
+          );
+        }
+
         return SettingGroupCard(
           title: "フォント設定",
           child: Column(
             children: [
               DescAndSettingItem(
-                desc: NPText(text: "ゲームで使用するフォントを変更できます\nデフォルトフォントは\"メイリオ\"です"),
-                settingItem: fontSelectorWidget,
+                desc: NPText(text:"デフォルトフォントを使用"),
+                settingItem: NPSwitch(value: settings.useDefaultFont, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setUseDefaultFont(isEnable!);}),
               ),
+              fontSelectWidget
             ],
           ),
         );

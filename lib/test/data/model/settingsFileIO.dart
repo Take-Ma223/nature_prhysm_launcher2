@@ -27,6 +27,7 @@ class SettingsFileIO{
     "NOTE_SYMBOL_K": "NOTE_SYMBOL_K",
     "NOTE_SYMBOL_F": "NOTE_SYMBOL_F",
 
+    "USE_DEFAULT_FONT": "USE_DEFAULT_FONT",
     "BASE_FONT": "BASE_FONT",
 
     "VSYNC_OFFSET_COMPENSATION": "VSYNC_OFFSET_COMPENSATION",
@@ -105,6 +106,7 @@ class SettingsFileIO{
       asioDriver: toInt(map[keyToString["ASIO_DRIVER"]]) ?? initSettings.asioDriver,
       buffer: toInt(map[keyToString["BUFFER"]]) ?? initSettings.buffer,
       noteSymbol: noteSymbol,
+      useDefaultFont: toBool(map[keyToString["USE_DEFAULT_FONT"]]) ?? initSettings.useDefaultFont,
       baseFont: map[keyToString["BASE_FONT"]] ?? initSettings.baseFont,
       vsyncOffsetCompensation: toBool(map[keyToString["VSYNC_OFFSET_COMPENSATION"]]) ?? initSettings.vsyncOffsetCompensation,
       showStrShadow: toBool(map[keyToString["SHOW_STR_SHADOW"]]) ?? initSettings.showStrShadow,
@@ -153,6 +155,7 @@ class SettingsFileIO{
       "${keyToString["NOTE_SYMBOL_W"]}:${boolToStr(value.noteSymbol[6])}",
       "${keyToString["NOTE_SYMBOL_K"]}:${boolToStr(value.noteSymbol[7])}",
       "${keyToString["NOTE_SYMBOL_F"]}:${boolToStr(value.noteSymbol[8])}",
+      "${keyToString["USE_DEFAULT_FONT"]}:${boolToStr(value.useDefaultFont)}",
       "${keyToString["BASE_FONT"]}:${value.baseFont}",
       "${keyToString["VSYNC_OFFSET_COMPENSATION"]}:${boolToStr(value.vsyncOffsetCompensation)}",
       "${keyToString["SHOW_STR_SHADOW"]}:${boolToStr(value.showStrShadow)}",

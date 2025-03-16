@@ -46,8 +46,13 @@ class SoundGroupCard extends ConsumerWidget {
         } else if (settings.soundOutputType == 2) {
           //ASIOドライバ選択値
           int? selectedAsio = settings.asioDriver;
-          if (selectedAsio >= asioDriverList.length) selectedAsio = null;
-          if (selectedAsio! < 0) selectedAsio = null;
+          if (selectedAsio >= asioDriverList.length) {
+            selectedAsio = null;
+          }
+          else if (selectedAsio < 0) {
+            selectedAsio = null;
+          }
+
 
           print("selectedAsio:" + selectedAsio.toString());
 

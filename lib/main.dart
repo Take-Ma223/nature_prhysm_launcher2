@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nature_prhysm_launcher/test/ui/app/body/Body.dart';
-import 'package:nature_prhysm_launcher/test/ui/app/footer.dart';
+import 'package:nature_prhysm_launcher/app/ui/app/body/Body.dart';
+import 'package:nature_prhysm_launcher/app/ui/app/footer.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'test/data/settingFilePathProvider.dart';
-import 'test/data/settingsProvider.dart';
+import 'app/data/settingFilePathProvider.dart';
+import 'app/data/settingsProvider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

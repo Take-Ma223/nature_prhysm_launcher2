@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:nature_prhysm_launcher/test/data/settingFilePathProvider.dart';
+import 'package:nature_prhysm_launcher/app/data/settingFilePathProvider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'model/settings.dart';

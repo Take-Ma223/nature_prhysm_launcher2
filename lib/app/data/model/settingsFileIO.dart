@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:charset/charset.dart';
-import 'package:nature_prhysm_launcher/test/data/model/settings.dart';
+import 'package:nature_prhysm_launcher/app/data/model/settings.dart';
 import 'package:win32/win32.dart';
 
 class SettingsFileIO{

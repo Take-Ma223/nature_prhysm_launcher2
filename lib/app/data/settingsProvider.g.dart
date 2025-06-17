@@ -25,7 +25,7 @@ final fetchConfigurationProvider = AutoDisposeFutureProvider<Settings>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef FetchConfigurationRef = AutoDisposeFutureProviderRef<Settings>;
-String _$settingsNotifierHash() => r'7d9539b3988902d5c43f9df7b40ebe683e66f64b';
+String _$settingsNotifierHash() => r'55294ffe38dd5e8323e7fc7819e057a5078091ad';
 
 /// See also [SettingsNotifier].
 @ProviderFor(SettingsNotifier)

@@ -10,6 +10,7 @@ import '../../data/settingsProvider.dart';
 import '../component/NPButton.dart';
 import '../component/NPText.dart';
 import 'package:path/path.dart' as path;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Footer extends ConsumerWidget {
   const Footer({super.key});
@@ -47,22 +48,22 @@ class Footer extends ConsumerWidget {
 
 
                   }on PathNotFoundException{
-                    showErrorDialog(context,"save_dataフォルダが見つからないため、\n設定を書き込めません。");
+                    showErrorDialog(context, AppLocalizations.of(context)!.save_data_folder_not_found_on_game_start);
                   }on PathAccessException {
-                    showErrorDialog(context,"他のアプリケーションによってconfig.datファイルが開かれているため、\n設定を書き込めません。\nファイルを開いているアプリケーションを終了してください。");
+                    showErrorDialog(context, AppLocalizations.of(context)!.can_not_write_config_file);
                   }catch (e){
-                    showErrorDialog(context,"設定の書き込み中にエラーが発生しました。\n$e");
+                    showErrorDialog(context, AppLocalizations.of(context)!.error_occurred_while_writing + "\n$e");
 
                   }
                 },
-                child: NPText(text: "ゲームスタート")
+                child: NPText(text: AppLocalizations.of(context)!.start_game_btn_title)
             ),
 
             NPButton(
                 onPressed: (){
                   SaveDataTransferHandler().onClickTransferSaveData(context, ref);
                 },
-                child: NPText(text: "セーブデータの引継ぎ(ver1.30以降)")
+                child: NPText(text: AppLocalizations.of(context)!.transfer_save_data_btn_title)
             ),
 
           ],
@@ -75,12 +76,12 @@ class Footer extends ConsumerWidget {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("エラー"),
+        title: Text(AppLocalizations.of(context)!.error),
         content: Text(message),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
+            child: Text(AppLocalizations.of(context)!.ok),
           )
         ],
       ),

@@ -8,6 +8,7 @@ import '../../component/NPSwitch.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FontGroupCard extends ConsumerWidget {
   const FontGroupCard({super.key});
@@ -53,7 +54,7 @@ class FontGroupCard extends ConsumerWidget {
             );
           },
           loading: () => Center(child: CircularProgressIndicator()),
-          error: (e, stack) => Center(child: Text("エラー: $e")),
+          error: (e, stack) => Center(child: Text("Error: $e")),
         );
 
         Widget fontSelectWidget;
@@ -64,7 +65,7 @@ class FontGroupCard extends ConsumerWidget {
             children: [
               Container(height: space),
               DescAndSettingItem(
-                desc: NPText(text: "ゲームで使用するフォントを変更"),
+                desc: NPText(text: AppLocalizations.of(context)!.base_font_desc),
                 settingItem: fontSelectorWidget,
               ),
             ],
@@ -72,11 +73,11 @@ class FontGroupCard extends ConsumerWidget {
         }
 
         return SettingGroupCard(
-          title: "フォント設定",
+          title: AppLocalizations.of(context)!.font_settings,
           child: Column(
             children: [
               DescAndSettingItem(
-                desc: NPText(text:"デフォルトフォントを使用"),
+                desc: NPText(text:AppLocalizations.of(context)!.use_default_font_desc),
                 settingItem: NPSwitch(value: settings.useDefaultFont, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setUseDefaultFont(isEnable!);}),
               ),
               fontSelectWidget

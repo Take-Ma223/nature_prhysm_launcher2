@@ -6,6 +6,8 @@ part 'settings.freezed.dart';
 @freezed
 class Settings with _$Settings {
   const factory Settings({
+    required final String locale,
+
     required final bool vsync,
     required final int fps,
     required final bool showFps,
@@ -37,6 +39,7 @@ class Settings with _$Settings {
 
   static Settings getDefault() {
     return Settings(
+      locale: "ja",
       vsync: false,
       fps: 450,
       showFps: false,

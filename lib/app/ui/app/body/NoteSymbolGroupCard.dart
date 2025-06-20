@@ -6,6 +6,7 @@ import '../../component/NPSwitch.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NoteSymbolGroupCard extends ConsumerWidget {
   const NoteSymbolGroupCard({super.key});
@@ -29,25 +30,25 @@ class NoteSymbolGroupCard extends ConsumerWidget {
     ];
 
     final List<String> desc = [
-      '赤色(R)',
-      '緑色(G)',
-      '青色(B)',
-      '水色(C)',
-      '紫色(M)',
-      '黄色(Y)',
-      '白色(W)',
-      '黒色(K)',
-      '虹色(F)',
+      AppLocalizations.of(context)!.red,
+      AppLocalizations.of(context)!.green,
+      AppLocalizations.of(context)!.blue,
+      AppLocalizations.of(context)!.cyan,
+      AppLocalizations.of(context)!.magenta,
+      AppLocalizations.of(context)!.yellow,
+      AppLocalizations.of(context)!.white,
+      AppLocalizations.of(context)!.black,
+      AppLocalizations.of(context)!.rainbow,
     ];
 
     return settings.when(
         data: (settings){
           return SettingGroupCard(
-            title: "音符記号設定",
+            title: AppLocalizations.of(context)!.note_symbol,
             child: Column(
               children: [
-                Row(children: [NPText(text: "チェックを付けた色の音符に記号を表示できます")]),
-                Row(children: [NPText(text: "記号の種類はゲームオプションのnote symbolで変更できます"),],),
+                Row(children: [NPText(text: AppLocalizations.of(context)!.note_symbol_desc1)]),
+                Row(children: [NPText(text: AppLocalizations.of(context)!.note_symbol_desc2),],),
                 for(int i=0; i<9;i++)...{
                   DescAndSettingItem(
                     desc: Row(children: [

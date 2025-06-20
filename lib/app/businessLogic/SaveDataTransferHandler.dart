@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../data/settingFilePathProvider.dart';
 import '../data/settingsProvider.dart';
 import 'SaveDataTransfer.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SaveDataTransferHandler {
   final SaveDataTransfer saveDataTransfer = SaveDataTransfer();
@@ -14,18 +15,18 @@ class SaveDataTransferHandler {
     final shouldProceed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text("セーブデータ引継ぎ"),
+        title: Text(AppLocalizations.of(context)!.transfer_save_data_dialog_title),
         content: Text(
-          "セーブデータを引き継ぎたいnature prhysmのフォルダを選択してください(ver1.30以降)。\n移動先のデータは削除されます。",
+          AppLocalizations.of(context)!.transfer_save_data_desc,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text("キャンセル"),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
-            child: Text("OK"),
+            child: Text(AppLocalizations.of(context)!.ok),
           ),
         ],
       ),
@@ -46,12 +47,12 @@ class SaveDataTransferHandler {
         context: context,
         builder:
             (context) => AlertDialog(
-              title: Text("セーブデータ引継ぎ"),
-              content: Text("引継ぎ先と同じフォルダは選べません。他のフォルダを選択してください。"),
+              title: Text(AppLocalizations.of(context)!.transfer_save_data_dialog_title),
+              content: Text(AppLocalizations.of(context)!.select_other_folder),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("OK"),
+                  child: Text(AppLocalizations.of(context)!.ok),
                 ),
               ],
             ),

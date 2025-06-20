@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:io/io.dart';
 import 'package:path/path.dart' as path;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class SaveDataTransfer {
@@ -19,11 +20,11 @@ class SaveDataTransfer {
           context: context,
           barrierDismissible: false, // ユーザーが閉じられないようにする
           builder: (context) => AlertDialog(
-            title: Text("セーブデータ引継ぎ"),
+            title: Text(AppLocalizations.of(context)!.transfer_save_data_dialog_title),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("データを引き継いでいます..."),
+                Text(AppLocalizations.of(context)!.moving_save_data),
                 SizedBox(height: 20),
                 CircularProgressIndicator(),
               ],
@@ -45,12 +46,12 @@ class SaveDataTransfer {
         await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text("セーブデータ引継ぎ"),
-            content: Text("セーブデータの引継ぎが完了しました。"),
+            title: Text(AppLocalizations.of(context)!.transfer_save_data_dialog_title),
+            content: Text(AppLocalizations.of(context)!.transfer_save_data_completed),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("OK"),
+                child: Text(AppLocalizations.of(context)!.ok),
               )
             ],
           ),
@@ -58,11 +59,11 @@ class SaveDataTransfer {
       } on FileSystemException catch (e) {
         // 引継ぎ中ダイアログ非表示
         Navigator.pop(context); // ローディングダイアログを閉じる
-        await showErrorDialog(context, "他のアプリケーションによって開かれているファイルがあるため、\nセーブデータを引き継げません。\nファイルを開いているアプリケーションを終了してください。");
+        await showErrorDialog(context, AppLocalizations.of(context)!.can_not_transfer_save_data);
         return false;
       }
     } else {
-      await showErrorDialog(context, "save_dataフォルダが見つかりません。");
+      await showErrorDialog(context, AppLocalizations.of(context)!.save_data_folder_not_found_on_transfer_save_data);
       return false;
     }
 
@@ -81,12 +82,12 @@ class SaveDataTransfer {
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("エラー"),
+        title: Text(AppLocalizations.of(context)!.error),
         content: Text(message),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
+            child: Text(AppLocalizations.of(context)!.ok),
           )
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nature_prhysm_launcher/app/ui/app/body/Body.dart';
 import 'package:nature_prhysm_launcher/app/ui/app/footer.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'app/data/settingFilePathProvider.dart';
 import 'app/data/settingsProvider.dart';
@@ -59,7 +60,27 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final settings = ref.watch(settingsNotifierProvider);
+
+    Locale locale = Locale('ja');
+    settings.when(
+        data: (settings){
+          print(settings);
+          locale = Locale(settings.locale);
+          print(locale);
+        },
+        error: (err, stack){ locale = Locale('ja');},
+        loading: (){ locale = Locale('ja');}
+    );
+
     return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+        Locale('ko'),
+      ],
+      locale: locale,
       title: 'nature prhysm launcher',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -93,22 +114,5 @@ class Contents extends ConsumerWidget {
     print("Contents build");
 
     return widget;
-  }
-
-  Future<void> showErrorDialog(BuildContext context, String message) async {
-    await showDialog(
-      context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text("エラー"),
-            content: Text(message),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text("OK"),
-              ),
-            ],
-          ),
-    );
   }
 }

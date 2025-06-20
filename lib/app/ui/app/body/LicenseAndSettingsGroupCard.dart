@@ -7,6 +7,7 @@ import '../../component/NPButton.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LicenseAndSettingsGroupCard extends ConsumerWidget {
   const LicenseAndSettingsGroupCard({super.key});
@@ -19,26 +20,26 @@ class LicenseAndSettingsGroupCard extends ConsumerWidget {
     final double space = 20;
 
     return SettingGroupCard(
-      title: "ライセンス・設定",
+      title: AppLocalizations.of(context)!.license_and_settings,
       child: Column(
         children: [
           DescAndSettingItem(
-            desc: NPText(text: "ライセンスの表示"),
+            desc: NPText(text: AppLocalizations.of(context)!.license_desc),
             settingItem: NPButton(
               onPressed: () {
                 showLicensePage(context: context);
               },
-              child: NPText(text: "ライセンス"),
+              child: NPText(text: AppLocalizations.of(context)!.license_btn_title),
             ),
           ),
           Container(height: space),
           DescAndSettingItem(
-            desc: NPText(text: "デフォルト設定に戻す"),
+            desc: NPText(text: AppLocalizations.of(context)!.init_settings_btn_title),
             settingItem: NPButton(
               onPressed: () {
                 SetSettingsDefault().onClickSetSettingsDefault(context, ref);
               },
-              child: NPText(text: "デフォルト設定に戻す"),
+              child: NPText(text: AppLocalizations.of(context)!.init_settings),
             ),
           ),
         ],

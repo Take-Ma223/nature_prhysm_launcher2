@@ -1,0 +1,24 @@
+■プロジェクトクリーン
+flutter clean
+
+■多言語 gen_l10nファイル自動生成
+flutter gen-l10n
+
+■ビルド前に実行(freezed, RiverPod annotation用)
+dart run build_runner build
+
+
+■アイコン設定
+flutter pub run flutter_launcher_icons:main
+
+■リリースビルド時
+flutter build windows
+
+
+
+
+
+
+
+
+

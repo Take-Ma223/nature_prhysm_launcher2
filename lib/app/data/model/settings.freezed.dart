@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Settings {
+  String get locale => throw _privateConstructorUsedError;
   bool get vsync => throw _privateConstructorUsedError;
   int get fps => throw _privateConstructorUsedError;
   bool get showFps => throw _privateConstructorUsedError;
@@ -53,6 +54,7 @@ abstract class $SettingsCopyWith<$Res> {
       _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
   $Res call({
+    String locale,
     bool vsync,
     int fps,
     bool showFps,
@@ -93,6 +95,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = null,
     Object? vsync = null,
     Object? fps = null,
     Object? showFps = null,
@@ -118,6 +121,11 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   }) {
     return _then(
       _value.copyWith(
+            locale:
+                null == locale
+                    ? _value.locale
+                    : locale // ignore: cast_nullable_to_non_nullable
+                        as String,
             vsync:
                 null == vsync
                     ? _value.vsync
@@ -244,6 +252,7 @@ abstract class _$$SettingsImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    String locale,
     bool vsync,
     int fps,
     bool showFps,
@@ -283,6 +292,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? locale = null,
     Object? vsync = null,
     Object? fps = null,
     Object? showFps = null,
@@ -308,6 +318,11 @@ class __$$SettingsImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SettingsImpl(
+        locale:
+            null == locale
+                ? _value.locale
+                : locale // ignore: cast_nullable_to_non_nullable
+                    as String,
         vsync:
             null == vsync
                 ? _value.vsync
@@ -427,6 +442,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 
 class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   const _$SettingsImpl({
+    required this.locale,
     required this.vsync,
     required this.fps,
     required this.showFps,
@@ -451,6 +467,8 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     required this.comPort,
   }) : _noteSymbol = noteSymbol;
 
+  @override
+  final String locale;
   @override
   final bool vsync;
   @override
@@ -504,7 +522,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Settings(vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, useDefaultFont: $useDefaultFont, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
+    return 'Settings(locale: $locale, vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, useDefaultFont: $useDefaultFont, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
   }
 
   @override
@@ -512,6 +530,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('locale', locale))
       ..add(DiagnosticsProperty('vsync', vsync))
       ..add(DiagnosticsProperty('fps', fps))
       ..add(DiagnosticsProperty('showFps', showFps))
@@ -550,6 +569,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SettingsImpl &&
+            (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.vsync, vsync) || other.vsync == vsync) &&
             (identical(other.fps, fps) || other.fps == fps) &&
             (identical(other.showFps, showFps) || other.showFps == showFps) &&
@@ -603,6 +623,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   @override
   int get hashCode => Object.hashAll([
     runtimeType,
+    locale,
     vsync,
     fps,
     showFps,
@@ -638,6 +659,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
 
 abstract class _Settings implements Settings {
   const factory _Settings({
+    required final String locale,
     required final bool vsync,
     required final int fps,
     required final bool showFps,
@@ -662,6 +684,8 @@ abstract class _Settings implements Settings {
     required final int comPort,
   }) = _$SettingsImpl;
 
+  @override
+  String get locale;
   @override
   bool get vsync;
   @override

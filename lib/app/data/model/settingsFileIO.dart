@@ -8,6 +8,8 @@ import 'package:win32/win32.dart';
 
 class SettingsFileIO{
   static final Map<String, String> keyToString = {
+    "LOCALE": "LOCALE",
+
     "VSYNC": "VSYNC",
     "FPS": "FPS",
     "SHOW_FPS": "SHOW_FPS",
@@ -98,6 +100,7 @@ class SettingsFileIO{
 
 
     final result = Settings(
+      locale: map[keyToString["LOCALE"]] ?? initSettings.locale,
       vsync: toBool(map[keyToString["VSYNC"]]) ?? initSettings.vsync,
       fps: toInt(map[keyToString["FPS"]]) ?? initSettings.fps,
       showFps: toBool(map[keyToString["SHOW_FPS"]]) ?? initSettings.showFps,
@@ -139,6 +142,7 @@ class SettingsFileIO{
     }
 
     final data = [
+      "${keyToString["LOCALE"]}:${value.locale}",
       "${keyToString["VSYNC"]}:${boolToStr(value.vsync)}",
       "${keyToString["FPS"]}:${intToStr(value.fps)}",
       "${keyToString["SHOW_FPS"]}:${boolToStr(value.showFps)}",

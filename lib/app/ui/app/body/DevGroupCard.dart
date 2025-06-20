@@ -7,6 +7,7 @@ import '../../component/NPSwitch.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DevGroupCard extends ConsumerWidget {
   const DevGroupCard({super.key});
@@ -21,28 +22,28 @@ class DevGroupCard extends ConsumerWidget {
     return settings.when(
         data: (settings){
           return SettingGroupCard(
-            title: "開発者用設定",
+            title: AppLocalizations.of(context)!.dev_settings,
             child: Column(
               children: [
-                Row(children: [NPText(text: "開発者用の設定です　変更する必要はありません")]),
+                Row(children: [NPText(text: AppLocalizations.of(context)!.dev_settings_desc)]),
                 Container(height: space),
                 DescAndSettingItem(
-                  desc: NPText(text:"オートプレイの表示"),
+                  desc: NPText(text:AppLocalizations.of(context)!.show_debug_desc),
                   settingItem: NPSwitch(value: settings.showDebug, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setShowDebug(isEnable!);}),
                 ),
                 Container(height: space),
                 DescAndSettingItem(
-                  desc: NPText(text:"サーバー接続先をローカルにする"),
+                  desc: NPText(text:AppLocalizations.of(context)!.local_desc),
                   settingItem: NPSwitch(value: settings.local, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setLocal(isEnable!);}),
                 ),
                 Container(height: space),
                 DescAndSettingItem(
-                  desc: NPText(text:"pythonスクリプトの使用"),
+                  desc: NPText(text:AppLocalizations.of(context)!.use_py_desc),
                   settingItem: NPSwitch(value: settings.usePy, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setUsePy(isEnable!);}),
                 ),
                 Container(height: space),
                 DescAndSettingItem(
-                  desc: NPText(text:"COM PORT\n(専用コントローラ接続用)"),
+                  desc: NPText(text:AppLocalizations.of(context)!.com_port_desc),
                   settingItem: NPNumericInput(value:settings.comPort, min:0, max: 99999, onChanged: (comPort) {ref.read(settingsNotifierProvider.notifier).setComPort(comPort.toInt());}),
                 ),
               ],

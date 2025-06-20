@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../data/settingsProvider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SetSettingsDefault {
   //final SaveDataTransfer saveDataTransfer = SaveDataTransfer();
@@ -11,18 +12,18 @@ class SetSettingsDefault {
     final shouldProceed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text("デフォルト設定に戻す"),
+        title: Text(AppLocalizations.of(context)!.init_settings_dialog_title),
         content: Text(
-          "設定値をデフォルトに戻しますか？",
+          AppLocalizations.of(context)!.init_settings_desc,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, false),
-            child: Text("いいえ"),
+            child: Text(AppLocalizations.of(context)!.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
-            child: Text("はい"),
+            child: Text(AppLocalizations.of(context)!.ok),
           ),
         ],
       ),
@@ -40,14 +41,14 @@ class SetSettingsDefault {
     final shouldProceed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text("デフォルト設定に戻す"),
+        title: Text(AppLocalizations.of(context)!.init_settings_dialog_title),
         content: Text(
-          "設定値をデフォルトに戻しました。",
+            AppLocalizations.of(context)!.init_settings_completed,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext, true),
-            child: Text("OK"),
+            child: Text(AppLocalizations.of(context)!.ok),
           ),
         ],
       ),

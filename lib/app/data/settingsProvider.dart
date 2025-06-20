@@ -40,6 +40,9 @@ class SettingsNotifier extends _$SettingsNotifier{
     return Settings.getDefault();
   }
 
+  void setLocale(String locale) {
+    update((data) => data.copyWith(locale: locale));
+  }
 
   void setVsync(bool isEnable) {
     update((data) => data.copyWith(vsync: isEnable));

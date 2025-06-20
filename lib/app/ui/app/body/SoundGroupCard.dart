@@ -9,6 +9,7 @@ import '../../component/NPSwitch.dart';
 import '../../component/NPText.dart';
 import '../../layout/DescAndSettingItem.dart';
 import '../../layout/SettingGroupCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SoundGroupCard extends ConsumerWidget {
   const SoundGroupCard({super.key});
@@ -34,7 +35,7 @@ class SoundGroupCard extends ConsumerWidget {
             children: [
               Container(height: space),
               detailSettingWidget = DescAndSettingItem(
-                desc: NPText(text: "排他モード\n(ONにすると音声遅延が少なくなります)"),
+                desc: NPText(text: AppLocalizations.of(context)!.wasapi_exclusive_desc),
                 settingItem: NPSwitch(
                     value: settings.wasapiExclusive,
                     onChanged: (isEnable) {
@@ -60,7 +61,7 @@ class SoundGroupCard extends ConsumerWidget {
             children: [
               Container(height: space),
               DescAndSettingItem(
-                desc: NPText(text: "ASIOドライバ"),
+                desc: NPText(text: AppLocalizations.of(context)!.asio_driver_desc),
                 settingItem: NPDropDownButton(
                   width: 250,
                   isExpanded: true,
@@ -82,7 +83,7 @@ class SoundGroupCard extends ConsumerWidget {
               ),
               Container(height: space),
               DescAndSettingItem(
-                desc: NPText(text: "バッファサイズ\n(ドライバが対応しているバッファサイズを指定してください)"),
+                desc: NPText(text: AppLocalizations.of(context)!.buffer_desc),
                 settingItem: NPNumericInput(
                   value: settings.buffer,
                   min: 1,
@@ -112,22 +113,18 @@ class SoundGroupCard extends ConsumerWidget {
         }
 
         return SettingGroupCard(
-          title: "サウンド",
+          title: AppLocalizations.of(context)!.sound,
           child: Column(
             children: [
               DescAndSettingItem(
                 desc: NPText(
-                  text: "音声出力タイプ(WASAPI推奨)",
+                  text: AppLocalizations.of(context)!.sound_output_type_desc,
                 ),
                 settingItem: NPDropDownButton(
                   width: 120,
                   isExpanded: true,
                   value: selectedSoundOutputType,
-                  items: [
-                    DropdownMenuItem<int>(value: 0, child: NPText(text: "DirectSound")),
-                    DropdownMenuItem<int>(value: 1, child: NPText(text: "WASAPI")),
-                    DropdownMenuItem<int>(value: 2, child: NPText(text: "ASIO")),
-                  ],
+                  items: SoundOutPutTypeList,
                   onChanged: (type) {
                     ref
                         .read(settingsNotifierProvider.notifier)

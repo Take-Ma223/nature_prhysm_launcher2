@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nature_prhysm_launcher/app/ui/app/body/LocaleGroupCard.dart';
 import '../../../data/settingsProvider.dart';
 import 'DevGroupCard.dart';
 import 'FontGroupCard.dart';
@@ -28,6 +29,8 @@ class Body extends ConsumerWidget {
         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         child: ListView(
           children: [
+            LocaleGroupCard(),
+            Container(height: space),
             GraphicGroupCard(),
             Container(height: space),
             SoundGroupCard(),

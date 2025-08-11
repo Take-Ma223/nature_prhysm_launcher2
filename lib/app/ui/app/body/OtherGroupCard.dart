@@ -64,6 +64,11 @@ class OtherGroupCard extends ConsumerWidget {
                   desc: NPText(text:AppLocalizations.of(context)!.use_ai_predicted_difficulty),
                   settingItem: NPSwitch(value: settings.useAiPredictedDifficulty, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setUseAiPredictedDifficulty(isEnable!);}),
                 ),
+                Container(height: space),
+                DescAndSettingItem(
+                  desc: NPText(text:AppLocalizations.of(context)!.use_enter_instead_of_space_when_auto_mode),
+                  settingItem: NPSwitch(value: settings.useEnterInsteadOfSpaceWhenAutoMode, onChanged: (isEnable) {ref.read(settingsNotifierProvider.notifier).setUseEnterInsteadOfSpaceWhenAutoMode(isEnable!);}),
+                ),
               ],
             ),
           );

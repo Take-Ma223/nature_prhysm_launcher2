@@ -30,6 +30,7 @@ class Settings with _$Settings {
     required final bool fullScreen,
     required final bool editable,
     required final bool useAiPredictedDifficulty,
+    required final bool useEnterInsteadOfSpaceWhenAutoMode,
 
     required final bool showDebug,
     required final bool local,
@@ -58,6 +59,7 @@ class Settings with _$Settings {
       fullScreen: false,
       editable: false,
       useAiPredictedDifficulty: false,
+      useEnterInsteadOfSpaceWhenAutoMode: false,
       showDebug: true,
       local: false,
       usePy: false,

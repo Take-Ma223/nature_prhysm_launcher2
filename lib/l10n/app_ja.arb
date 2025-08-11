@@ -42,6 +42,8 @@
   "full_screen_desc":"フルスクリーンで起動(正常に動作しない可能性があります)",
   "editable_desc":"譜面を編集可能にする",
   "use_ai_predicted_difficulty":"選曲画面でAI予測難易度を使用する",
+  "use_enter_instead_of_space_when_auto_mode":"オートプレイで再生停止に使うキーをスペースキーからEnterキーに変更",
+
   "dev_settings":"開発者用設定",
   "dev_settings_desc":"開発者用の設定です　変更する必要はありません",
   "show_debug_desc":"オートプレイの表示",

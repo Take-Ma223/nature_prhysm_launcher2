@@ -120,6 +120,10 @@ class SettingsNotifier extends _$SettingsNotifier{
     update((data) => data.copyWith(useAiPredictedDifficulty: isEnable));
   }
 
+  void setUseEnterInsteadOfSpaceWhenAutoMode(bool isEnable) {
+    update((data) => data.copyWith(useEnterInsteadOfSpaceWhenAutoMode: isEnable));
+  }
+
   void setShowDebug(bool isEnable) {
     update((data) => data.copyWith(showDebug: isEnable));
   }

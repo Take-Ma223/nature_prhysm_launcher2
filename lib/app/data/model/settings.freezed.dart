@@ -36,6 +36,8 @@ mixin _$Settings {
   bool get fullScreen => throw _privateConstructorUsedError;
   bool get editable => throw _privateConstructorUsedError;
   bool get useAiPredictedDifficulty => throw _privateConstructorUsedError;
+  bool get useEnterInsteadOfSpaceWhenAutoMode =>
+      throw _privateConstructorUsedError;
   bool get showDebug => throw _privateConstructorUsedError;
   bool get local => throw _privateConstructorUsedError;
   bool get usePy => throw _privateConstructorUsedError;
@@ -73,6 +75,7 @@ abstract class $SettingsCopyWith<$Res> {
     bool fullScreen,
     bool editable,
     bool useAiPredictedDifficulty,
+    bool useEnterInsteadOfSpaceWhenAutoMode,
     bool showDebug,
     bool local,
     bool usePy,
@@ -114,6 +117,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
     Object? fullScreen = null,
     Object? editable = null,
     Object? useAiPredictedDifficulty = null,
+    Object? useEnterInsteadOfSpaceWhenAutoMode = null,
     Object? showDebug = null,
     Object? local = null,
     Object? usePy = null,
@@ -216,6 +220,11 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
                     ? _value.useAiPredictedDifficulty
                     : useAiPredictedDifficulty // ignore: cast_nullable_to_non_nullable
                         as bool,
+            useEnterInsteadOfSpaceWhenAutoMode:
+                null == useEnterInsteadOfSpaceWhenAutoMode
+                    ? _value.useEnterInsteadOfSpaceWhenAutoMode
+                    : useEnterInsteadOfSpaceWhenAutoMode // ignore: cast_nullable_to_non_nullable
+                        as bool,
             showDebug:
                 null == showDebug
                     ? _value.showDebug
@@ -271,6 +280,7 @@ abstract class _$$SettingsImplCopyWith<$Res>
     bool fullScreen,
     bool editable,
     bool useAiPredictedDifficulty,
+    bool useEnterInsteadOfSpaceWhenAutoMode,
     bool showDebug,
     bool local,
     bool usePy,
@@ -311,6 +321,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
     Object? fullScreen = null,
     Object? editable = null,
     Object? useAiPredictedDifficulty = null,
+    Object? useEnterInsteadOfSpaceWhenAutoMode = null,
     Object? showDebug = null,
     Object? local = null,
     Object? usePy = null,
@@ -413,6 +424,11 @@ class __$$SettingsImplCopyWithImpl<$Res>
                 ? _value.useAiPredictedDifficulty
                 : useAiPredictedDifficulty // ignore: cast_nullable_to_non_nullable
                     as bool,
+        useEnterInsteadOfSpaceWhenAutoMode:
+            null == useEnterInsteadOfSpaceWhenAutoMode
+                ? _value.useEnterInsteadOfSpaceWhenAutoMode
+                : useEnterInsteadOfSpaceWhenAutoMode // ignore: cast_nullable_to_non_nullable
+                    as bool,
         showDebug:
             null == showDebug
                 ? _value.showDebug
@@ -461,6 +477,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     required this.fullScreen,
     required this.editable,
     required this.useAiPredictedDifficulty,
+    required this.useEnterInsteadOfSpaceWhenAutoMode,
     required this.showDebug,
     required this.local,
     required this.usePy,
@@ -512,6 +529,8 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
   @override
   final bool useAiPredictedDifficulty;
   @override
+  final bool useEnterInsteadOfSpaceWhenAutoMode;
+  @override
   final bool showDebug;
   @override
   final bool local;
@@ -522,7 +541,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Settings(locale: $locale, vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, useDefaultFont: $useDefaultFont, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
+    return 'Settings(locale: $locale, vsync: $vsync, fps: $fps, showFps: $showFps, soundOutputType: $soundOutputType, wasapiExclusive: $wasapiExclusive, asioDriver: $asioDriver, buffer: $buffer, noteSymbol: $noteSymbol, useDefaultFont: $useDefaultFont, baseFont: $baseFont, vsyncOffsetCompensation: $vsyncOffsetCompensation, showStrShadow: $showStrShadow, useHighPerformanceTimer: $useHighPerformanceTimer, songSelectRowNumber: $songSelectRowNumber, displayTimingOffset: $displayTimingOffset, fullScreen: $fullScreen, editable: $editable, useAiPredictedDifficulty: $useAiPredictedDifficulty, useEnterInsteadOfSpaceWhenAutoMode: $useEnterInsteadOfSpaceWhenAutoMode, showDebug: $showDebug, local: $local, usePy: $usePy, comPort: $comPort)';
   }
 
   @override
@@ -556,6 +575,12 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
         DiagnosticsProperty(
           'useAiPredictedDifficulty',
           useAiPredictedDifficulty,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty(
+          'useEnterInsteadOfSpaceWhenAutoMode',
+          useEnterInsteadOfSpaceWhenAutoMode,
         ),
       )
       ..add(DiagnosticsProperty('showDebug', showDebug))
@@ -613,6 +638,12 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
                   useAiPredictedDifficulty,
                 ) ||
                 other.useAiPredictedDifficulty == useAiPredictedDifficulty) &&
+            (identical(
+                  other.useEnterInsteadOfSpaceWhenAutoMode,
+                  useEnterInsteadOfSpaceWhenAutoMode,
+                ) ||
+                other.useEnterInsteadOfSpaceWhenAutoMode ==
+                    useEnterInsteadOfSpaceWhenAutoMode) &&
             (identical(other.showDebug, showDebug) ||
                 other.showDebug == showDebug) &&
             (identical(other.local, local) || other.local == local) &&
@@ -642,6 +673,7 @@ class _$SettingsImpl with DiagnosticableTreeMixin implements _Settings {
     fullScreen,
     editable,
     useAiPredictedDifficulty,
+    useEnterInsteadOfSpaceWhenAutoMode,
     showDebug,
     local,
     usePy,
@@ -678,6 +710,7 @@ abstract class _Settings implements Settings {
     required final bool fullScreen,
     required final bool editable,
     required final bool useAiPredictedDifficulty,
+    required final bool useEnterInsteadOfSpaceWhenAutoMode,
     required final bool showDebug,
     required final bool local,
     required final bool usePy,
@@ -722,6 +755,8 @@ abstract class _Settings implements Settings {
   bool get editable;
   @override
   bool get useAiPredictedDifficulty;
+  @override
+  bool get useEnterInsteadOfSpaceWhenAutoMode;
   @override
   bool get showDebug;
   @override

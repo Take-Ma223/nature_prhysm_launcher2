@@ -40,6 +40,7 @@ class SettingsFileIO{
     "FULLSCREEN": "FULLSCREEN",
     "EDITABLE": "EDITABLE",
     "USE_AI_PREDICTED_DIFFICULTY": "USE_AI_PREDICTED_DIFFICULTY",
+    "USE_ENTER_INSTEAD_OF_SPACE_WHEN_AUTO_MODE": "USE_ENTER_INSTEAD_OF_SPACE_WHEN_AUTO_MODE",
 
     "SHOW_DEBUG": "SHOW_DEBUG",
     "LOCAL": "LOCAL",
@@ -119,6 +120,7 @@ class SettingsFileIO{
       fullScreen: toBool(map[keyToString["FULLSCREEN"]]) ?? initSettings.fullScreen,
       editable: toBool(map[keyToString["EDITABLE"]]) ?? initSettings.editable,
       useAiPredictedDifficulty: toBool(map[keyToString["USE_AI_PREDICTED_DIFFICULTY"]]) ?? initSettings.useAiPredictedDifficulty,
+      useEnterInsteadOfSpaceWhenAutoMode: toBool(map[keyToString["USE_ENTER_INSTEAD_OF_SPACE_WHEN_AUTO_MODE"]]) ?? initSettings.useEnterInsteadOfSpaceWhenAutoMode,
       showDebug: toBool(map[keyToString["SHOW_DEBUG"]]) ?? initSettings.showDebug,
       local: toBool(map[keyToString["LOCAL"]]) ?? initSettings.local,
       usePy: toBool(map[keyToString["USE_PY"]]) ?? initSettings.usePy,
@@ -169,6 +171,7 @@ class SettingsFileIO{
       "${keyToString["FULLSCREEN"]}:${boolToStr(value.fullScreen)}",
       "${keyToString["EDITABLE"]}:${boolToStr(value.editable)}",
       "${keyToString["USE_AI_PREDICTED_DIFFICULTY"]}:${boolToStr(value.useAiPredictedDifficulty)}",
+      "${keyToString["USE_ENTER_INSTEAD_OF_SPACE_WHEN_AUTO_MODE"]}:${boolToStr(value.useEnterInsteadOfSpaceWhenAutoMode)}",
       "${keyToString["SHOW_DEBUG"]}:${boolToStr(value.showDebug)}",
       "${keyToString["LOCAL"]}:${boolToStr(value.local)}",
       "${keyToString["USE_PY"]}:${boolToStr(value.usePy)}",
